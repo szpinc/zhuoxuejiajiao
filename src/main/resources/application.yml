@@ -1,0 +1,9 @@
+spring:
+  mail:
+    port: 25
+    username: zxjj@szpinc.org
+    nickname: 卓学家教系统
+    password: Szp11020652
+    protocol: smtp
+    # default-encoding: utf-8
+    host: smtp.exmail.qq.com

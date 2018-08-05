@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="http://127.0.0.1:8080/v1/mail/send_notice" method="post">
+		<input id="name" type="text" name="name" value="张三"><br/>
+		<input id="phone" type="text" name="phone" value="123456"><br/>
+		<input id="grade" type="text" name="grade" value="三年级"><br/>
+		<input id="subject" type="text" name="subject" value="数学"><br/>
+		<input id="mailTo" type="text" name="mailTo" value="1316420259@qq.com"><br/>
+		
+	</form>
+	<button id="submit" onclick="send()">提交</button>
+
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+
+		
+		function send (){
+
+			var content ={
+					"mailTo": $('#mailTo').val(),
+					"name": $('#name').val(),
+					"phone": $('#phone').val(),
+					"grade": $('#grade').val(),
+					"subject": $('#subject').val()
+				}
+			console.log(content);
+
+			$.ajax({
+				url: 'http://127.0.0.1:8080/v1/mail/send_notice',
+				type: 'POST',
+				data: JSON.stringify(content),
+				async: false,
+				headers: {
+					"content-Type":"application/json",
+				},
+			});
+
+		}
+	</script>
+</body>
+</html>
